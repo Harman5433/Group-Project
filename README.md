@@ -1,4 +1,4 @@
-# VISIT [WIKI](https://github.com/Harman5433/Group-Project/wiki) PAGE
+
 # Attic Cooling System Proposal 
 ## Rationale:
 Most houses have an unfinished area underneath the roof called an “attic”. This area can be problematic during the summer months as heat builds up and rises to this area. This area can reach up to 75°C. As a result, the temperature of the room(s) directly underneath the attic increases, causing discomfort for occupants inside. Central air conditioning units are a means to regulate the internal temperature inside a house. Specifically, a thermostat is used to sense and send a control signal to the cooling system to maintain a desired temperature. The air conditioner will constantly run since the thermostat is detecting a higher temperature reading. Consequently, overall energy consumption (and operational costs) increases during the summer months.
