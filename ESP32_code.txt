@@ -1,0 +1,117 @@
+// Incluing libraries
+#include <WiFi.h>
+#include <DHT.h>  // Incluing DHT library
+#include <ThingSpeak.h> // always include thingspeak header file after other header files and custom macros
+
+
+
+// Declaring Variables / Contants
+char ssid[] = " " ; // your network SSID (name) 
+char pass[] = " ";  // your network password
+int keyIndex = 0;            // your network key Index number (needed only for WEP)
+WiFiClient  client;
+
+unsigned long myChannelNumber = 1905200;
+const char * myWriteAPIKey = "FWLH0WSTCXJ54C79";
+
+
+#define DHTPIN1 15                  //Defining pins and sensor type
+#define DHTPIN2 4     
+#define DHTTYPE DHT22  
+#define sensorPin 34 
+DHT dht1(DHTPIN1, DHTTYPE);
+DHT dht2(DHTPIN2, DHTTYPE);
+
+// Initialize values
+float attic_temp = 0;               //the temperature in Celsius
+float top_floor_temp = 0;           //the temperature in Celsius
+float diff_temp = 0;                //the temperature in Celsius
+int threshold = 1500;  
+;
+const int ledPin = 5;             //if the photoresistor reading is below this value the the light will turn on
+
+String myStatus = "";
+
+void setup() {
+  Serial.begin(9600);  //Initialize serial
+  pinMode(ledPin, OUTPUT);              //set pin 32 as an output that can be set to HIGH or LOW (Fan Control)  
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo native USB port only
+  }
+  dht1.begin();
+  dht2.begin();
+  WiFi.mode(WIFI_STA);   
+  ThingSpeak.begin(client);  // Initialize ThingSpeak
+}
+
+void loop() {
+  
+  // Connect or reconnect to WiFi
+  if(WiFi.status() != WL_CONNECTED){
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    while(WiFi.status() != WL_CONNECTED){
+      WiFi.begin(ssid, pass);  // Connect to WPA/WPA2 network. Change this line if using open or WEP network
+      Serial.print(".");
+      delay(1000);     
+    } 
+    Serial.println("\nConnected.");
+  }
+
+
+int photoresistor = analogRead(sensorPin);         //set photoresistor to a number between 0 and 1023 based on how bright the ambient light is
+
+  attic_temp = dht1.readTemperature();     //assign Attic temp variable to digital input (Pin 7)
+  top_floor_temp = dht2.readTemperature(); //assign Top Floor temp variable to digital input (Pin 8)
+  diff_temp = attic_temp - top_floor_temp;         //Calculate differential temperture.  
+  
+  Serial.print(" Current Light Level: ");
+  Serial.print(photoresistor);
+  
+  Serial.print(" Attic Temperture: ");
+  Serial.print(attic_temp);
+  Serial.print(" Celsius, Top Floor Temperture: ");
+  Serial.print(top_floor_temp);
+  Serial.print(" Celsius, Differencial Temp:");
+  Serial.print(diff_temp);
+  Serial.println(" Celsius");
+   if (photoresistor > threshold) {            //Day time
+
+    if(attic_temp > 35){              //If attic temp is over 35 degrees celsius (needs to be changed because my fingure does not go beyond that)
+      digitalWrite(ledPin, HIGH);         // Turn on the Fan
+    }
+
+    else if(diff_temp > 5){           //If differential temperture is greater than 5 degrees celsius
+      digitalWrite(ledPin, HIGH);         // Turn on the Fan
+    }
+    
+    else {                            //If the attic is under 35 degrees celsius, and differential temperture is less than 5 degrees celsius
+      digitalWrite(ledPin, LOW);            // Turn off the Fan
+    }
+  }
+  else {                              //Night time
+      digitalWrite(ledPin, LOW);            //Turn off the Fan
+  }
+
+
+
+  // set the fields with the values
+  ThingSpeak.setField(1, attic_temp);
+  ThingSpeak.setField(2, top_floor_temp);
+  ThingSpeak.setField(3, diff_temp);
+  ThingSpeak.setField(4, photoresistor);
+
+  // set the status
+  ThingSpeak.setStatus(myStatus);
+  
+  // write to the ThingSpeak channel
+  int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+  if(x == 200){
+    Serial.println("Channel update successful.");
+  }
+  else{
+    Serial.println("Problem updating channel. HTTP error code " + String(x));
+  }
+
+  delay(1000); // Wait 16 seconds to update the channel again. (Must be >= 15 for free plan)
+}
