@@ -87,6 +87,7 @@ Obstacles we have had include problems with the code, that include connecting to
 We hope that our results will show that the embedded system works within our experimental environment and that it can be practically used in a real-life situation.
 
 ## Project Design
+![image](https://user-images.githubusercontent.com/127377874/230844843-66e1e0c5-3650-46ab-ba1a-dba6be4a3e08.png)
  
 In this project, we built a close loop on/off feed back control system. The purpose of this system is to keep attic area relatively cool during summertime. The attic temperature and top floor room temperature are measured, and the temperature data would be collected by the controller. When designed conditions are met, the fan would turn on and push hot air out through roof vents. 
 Power supply for the system can be any type of 5 volts power source. In the graph above, the computer is acting as a power source. The reason is in our final presentation, we used computer to supply power and watch the serial monitor simultaneously for better demonstration. It can be replaced by a regular 5VDC phone charger, or a mobile power bank if local power outlet is not available. 
