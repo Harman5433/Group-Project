@@ -1,6 +1,6 @@
 
 # Attic Cooling System Proposal 
-## Rationale:
+<div align="justify">## Rationale:
 Most houses have an unfinished area underneath the roof called an “attic”. This area can be problematic during the summer months as heat builds up and rises to this area. This area can reach up to 75°C. As a result, the temperature of the room(s) directly underneath the attic increases, causing discomfort for occupants inside. Central air conditioning units are a means to regulate the internal temperature inside a house. Specifically, a thermostat is used to sense and send a control signal to the cooling system to maintain a desired temperature. The air conditioner will constantly run since the thermostat is detecting a higher temperature reading. Consequently, overall energy consumption (and operational costs) increases during the summer months.
 The purpose of our project is to create an automated cooling system. Once the temperature reaches a certain temperature, the fan will turn on. The sensor we will be using will be the DHT22 Temperature and Humidity sensor. There will be one sensor placed in the attic, and another one placed in the bedroom. The fan will continue to run until the attic temperature has reduced to the desired point. 
 An override condition has been implemented where the fan will turn off during nighttime. We will be using a photoresistor sensor located on a window ledge in the bedroom.
