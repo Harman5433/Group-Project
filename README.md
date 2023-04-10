@@ -1,4 +1,4 @@
-Link to [WIKI](https://github.com/Harman5433/Group-Project.wiki/git)
+Link to [WIKI](https://github.com/Harman5433/Group-Project/wiki)
 # Attic Cooling System Proposal 
 <div align="justify">
 
