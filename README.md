@@ -42,26 +42,26 @@ This is for residential use only because the DHT22 sensor can only reach a maxim
 The Arduino operating temperature range is -40°C to 85°C. While the recommended temperature is a maximum of +70°C. We would need to make sure the temperature of the attic is below this point for the system to function to what it is designed to do.
  
 ## Risk Analysis
-Hackers
+### Hackers
 The protocol we will be using is HTTP. Our data will not be encrypted when it is in transit. The only risk this imposes is that hackers will be able to monitor our data. The control of the system will not be at risk. 
 This would be an unlikely risk to happen. We would take a risk acceptance approach to this.
-Wi-Fi Loss
+### Wi-Fi Loss
 Loss of connectivity to the wi-fi will cause the ESP32 to no longer upload data to the server. This will not stop the functionality of the system. During the time of the outage, the data will not be monitored.
-Rodents
+### Rodents
 Damage can be caused by rodents in the attic. May lead to parts of the system not working such as connectivity to the server. Can also lead the system to not work altogether.
 Traps, poison, and rodent repellent will be used to mitigate this risk of occurring.
-Fire Hazard
+### Fire Hazard
 A short circuit can cause harm to both the system, the dwelling, and most importantly, residents living within the home. 
 A dedicated Fire and Smoke alarm system will be present to prevent/mitigate a potential harm. Verifying that the attic stays a smoke-free area will also alleviate the risk of a fire.
 
-Deliverables:
+## Deliverables:
 At the end of the project, we will have these following deliverables:
 •	Email notification via ThingSpeak
 •	Live monitoring on a webserver via ThingSpeak
 •	Prototype of the cooling system
 •	Final report for Umme
  
-Conceptual Framework
+
 
 	
 
@@ -79,7 +79,7 @@ Conceptual Framework
 
 
  
-Methodology
+## Methodology
 This project consists of an experiment aimed at reducing a house’s attic temperature to reduce its effect as a heating source for the floor(s) below it. During the hotter months of the year, this is problematic as the floor below it will heat up drastically due to the attic’s rise in temperature. 
 We have decided to build an embedded system that uses a microcontroller, a Wi-Fi module, a fan, and two temperature sensors to distinguish the temperature in the attic and the floor below it. The fan will turn on when the temperature in the attic rises past a certain temperature OR if the difference between the attic and the floor below it is more than five degrees. The fan will turn off when the above bounds have been resolved. We decided on five degrees because when dealing with high summer temperatures, a rise of five degrees is noticeably an uncomfortable change. 
 Our data will be sent out using a Wi-Fi module that will store the data in ThingSpace. Since we are using a DHT22 sensor, temperature data will be sent to the server every two seconds. When the fan gets triggered, a message is sent via email to the owner notifying them of the temperature change. This data can be accessed and graphed for visual representation.
@@ -99,12 +99,12 @@ We setup 5 graphs to show tendency of each data. Attic Temperature, Top Floor Te
 The last part is email notification. An email notification will be sent to users when the cooling fan is turned on. Similar to the data upload, free account can only receive 2 email notifications every half an hours. Paid member is required if more email notification is desired. 
 To sum up, in this project design, we’ve designed this system to be cost-efficient. More importantly, the system has to meet our functionality and performance expectation. Global supply chain issue impacted our design during equipment selecting process. We had to use the equipment that we could have in hand on time to build the system that performs reliable and desirable. 
  
-Result Analysis
+## Result Analysis
 Our results meet our expectation. During demonstration, the attic area temperature was decreasing when the cooling fan was turned on. Fan started and stopped once the desired condition is reached as expected.  Photoresistor provided very responsive reading and was able to override the fan control logic. Webserver receives data properly and sent email notification successfully. 
 The entire system was functioning properly. However, the high attic area temperature didn’t cause top floor area during our demonstration because heat transfer is a slow process that takes hours before it can be observed. The attic area temperature was decreasing slowly be cause the fan we used is not powerful enough, also the adapter we made with cardboard caused flow restriction. 
 Therefore, when we are implementing this system in real world scenario, fan selection and installation can be a key factor that affects ultimate the system performance. 
  
-Lessons Learnt
+## Lessons Learnt
 Our code was written in the C++ language having used Arduino’s IDE. Even though Harman already knew how to program in C++, our group had to learn certain aspects of the syntax needed for the Arduino IDE. This included searching the official Arduino website for syntax information.
 We learned how to use an ESP32 within the scope of our project and how to accommodate it in our project code.
 
@@ -114,7 +114,7 @@ Having needed an online web server for our project, it caused our group to learn
 
 A crucial lesson our group learnt that can apply to any situation where one is learning a new concept, is that it is important to do the proper research before trying to apply a new concept. For us, during different steps of the project, we often tried applying the concept without fully doing the proper research. This caused a lot of wasted time with troubleshooting that could have been avoided had we done the proper research. Researching every step of a concept is crucial for time management and successfully completing the task at hand.
 
-Conclusions and Future Direction
+## Conclusions and Future Direction
 Due to the time constraints for this project, we only had a couple months to work on the code and thus a limited time to improve it and make it more efficient. For future applications, the code can be improved and made more efficient.
 In a real-life application, it is important to have redundancy in the system. At least for potential points of failure. For this reason, we believe that having a redundant fan is important because if the fan stops working, the temperature will stop decreasing. Having a redundant power supply is just as important, because without power there is no working system.
 
