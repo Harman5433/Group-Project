@@ -5,9 +5,9 @@ Most houses have an unfinished area underneath the roof called an “attic”. T
 The purpose of our project is to create an automated cooling system. Once the temperature reaches a certain temperature, the fan will turn on. The sensor we will be using will be the DHT22 Temperature and Humidity sensor. There will be one sensor placed in the attic, and another one placed in the bedroom. The fan will continue to run until the attic temperature has reduced to the desired point. 
 An override condition has been implemented where the fan will turn off during nighttime. We will be using a photoresistor sensor located on a window ledge in the bedroom.
 
-Scope of the Project:
-In Scope:
-Building the Circuit
+## Scope of the Project:
+### In Scope:
+### Building the Circuit
 We will be using the following equipment to build the circuit:
 •	Arduino Uno Rev3
 •	DHT22 Temperature Sensor
@@ -17,31 +17,31 @@ We will be using the following equipment to build the circuit:
 •	Fan
 Once the DHT22 sensor reaches a certain temperature, the fan will be turned on. The photoresistor is used to determine when it becomes dark outside. Once it is dark, the fan will automatically switch off.
 
-Writing the Code
+### Writing the Code
 The code will consist of a fan being controlled by a temperature sensor and a photoresistor. The two inputs will be the temperature and photoresistor readings. The output will be the fan itself.
 We will have a condition where the fan will turn on once the specific temperature is reached. The fan will turn off once temperature is reduced to a desired point. Regardless of the temperature, the fan will be turned off once it is dark outside. 
 
-Product Target
+### Product Target
 The project design is catered for residential use only. The sensor we will be using has a range of -40°C to 80°C. The Arduino operating temperature range is -40°C to 85°C with ±0.5% accuracy.
 
-Out of Scope:
-Testing Prototype
+### Out of Scope:
+### Testing Prototype
 Since our project is primarily used during the summer months, we cannot test the prototype in an attic. We will be using two shoe boxes with a heat source like a hairdryer to warm up the inside of one of the shoe boxes.
 
-Constraining Budget
+### Constraining Budget
 By setting a budget, our options for equipment are limited using inexpensive, and readily available equipment such as sensors.
 
-Ordering Equipment
+### Ordering Equipment
 Since there is a deadline for this project, much of the equipment wasn’t available online. The arrival dates of some of the equipment were longer than normal. 
 
-Data Analytics
+### Data Analytics
 Due to time constraints, we will be lacking data analytics. We will not have a mobile app to control or monitor temperature activity.
 
-Restricting Temperatures
+### Restricting Temperatures
 This is for residential use only because the DHT22 sensor can only reach a maximum reading of 80°C. Anything beyond 80°C will read the same.
 The Arduino operating temperature range is -40°C to 85°C. While the recommended temperature is a maximum of +70°C. We would need to make sure the temperature of the attic is below this point for the system to function to what it is designed to do.
  
-Risk Analysis
+## Risk Analysis
 Hackers
 The protocol we will be using is HTTP. Our data will not be encrypted when it is in transit. The only risk this imposes is that hackers will be able to monitor our data. The control of the system will not be at risk. 
 This would be an unlikely risk to happen. We would take a risk acceptance approach to this.
