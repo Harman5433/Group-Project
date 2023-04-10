@@ -1,5 +1,5 @@
 
-# Attic cooling System 
+# Attic Cooling System Proposal 
 ## Rationale:
 Most houses have an unfinished area underneath the roof called an “attic”. This area can be problematic during the summer months as heat builds up and rises to this area. This area can reach up to 75°C. As a result, the temperature of the room(s) directly underneath the attic increases, causing discomfort for occupants inside. Central air conditioning units are a means to regulate the internal temperature inside a house. Specifically, a thermostat is used to sense and send a control signal to the cooling system to maintain a desired temperature. The air conditioner will constantly run since the thermostat is detecting a higher temperature reading. Consequently, overall energy consumption (and operational costs) increases during the summer months.
 The purpose of our project is to create an automated cooling system. Once the temperature reaches a certain temperature, the fan will turn on. The sensor we will be using will be the DHT22 Temperature and Humidity sensor. There will be one sensor placed in the attic, and another one placed in the bedroom. The fan will continue to run until the attic temperature has reduced to the desired point. 
@@ -86,7 +86,7 @@ Our data will be sent out using a Wi-Fi module that will store the data in Thing
 Obstacles we have had include problems with the code, that include connecting to BCIT’s internet. Their authentication is not supported by our code. The circuit build was also based off trial and error, with no specific obstacle. Due to ongoing international supply chain issues, long than expected delays on certain equipment is expected.
 We hope that our results will show that the embedded system works within our experimental environment and that it can be practically used in a real-life situation.
 
-Project Design
+## Project Design
  
 In this project, we built a close loop on/off feed back control system. The purpose of this system is to keep attic area relatively cool during summertime. The attic temperature and top floor room temperature are measured, and the temperature data would be collected by the controller. When designed conditions are met, the fan would turn on and push hot air out through roof vents. 
 Power supply for the system can be any type of 5 volts power source. In the graph above, the computer is acting as a power source. The reason is in our final presentation, we used computer to supply power and watch the serial monitor simultaneously for better demonstration. It can be replaced by a regular 5VDC phone charger, or a mobile power bank if local power outlet is not available. 
