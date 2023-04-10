@@ -1,11 +1,10 @@
 // Incluing libraries
 #include <WiFi.h>
 #include <DHT.h>  // Incluing DHT library
-#include <ThingSpeak.h> // always include thingspeak header file after other header files and custom macros
+#include <ThingSpeak.h> //  include thingspeak header file 
 
 
-
-// Declaring Variables / Contants
+// Declaring Variables and Contants
 char ssid[] = " " ; // your network SSID (name) 
 char pass[] = " ";  // your network password
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
