@@ -2,7 +2,7 @@ readChannelID =1905200 ;
 fieldID1 = 1;
 fieldID2 = 2;
 readAPIKey ='8L0AQ4RURXHBXG90';
-
+#I ALSO EDITED THIS FILE-SARAI
 [data1, time1] = thingSpeakRead(readChannelID, 'Field', fieldID1, 'NumPoints', 30, 'ReadKey', readAPIKey);
 [data2, time2] = thingSpeakRead(readChannelID, 'Field', fieldID2, 'NumPoints', 30, 'ReadKey', readAPIKey);
 
