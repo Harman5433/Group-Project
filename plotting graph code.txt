@@ -1,0 +1,20 @@
+readChannelID =1905200 ;
+fieldID1 = 1;
+fieldID2 = 2;
+readAPIKey ='8L0AQ4RURXHBXG90';
+
+[data1, time1] = thingSpeakRead(readChannelID, 'Field', fieldID1, 'NumPoints', 30, 'ReadKey', readAPIKey);
+[data2, time2] = thingSpeakRead(readChannelID, 'Field', fieldID2, 'NumPoints', 30, 'ReadKey', readAPIKey);
+
+yyaxis left;
+plot(time1, data1,'-*','LineWidth',2)
+ytickformat('%.2f')
+ylabel('Attic_Temperature [^0C]')
+xlabel('Date')
+
+yyaxis right;
+plot(time2, data2,'-o','LineWidth',2);
+ytickformat('%.2f')
+ylabel('Top_floor_Temperature [^0C]')
+legend({'Attic_Temp','Top_floor_Temp'},'Location', 'northwest')
+grid on
