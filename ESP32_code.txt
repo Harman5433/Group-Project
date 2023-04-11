@@ -2,7 +2,7 @@
 #include <WiFi.h>
 #include <DHT.h>  // Incluing DHT library
 #include <ThingSpeak.h> //  include thingspeak header file 
-
+#SHOWING I EDITED THIS FILE
 
 // Declaring Variables and Contants
 char ssid[] = " " ; // your network SSID (name) 
